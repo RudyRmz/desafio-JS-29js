@@ -71,7 +71,12 @@ const postInfo = {
     title: '',
     tags: [],
     description: '',
+    date: '',
 }
+
+// const fechaActual = new Date();
+// const tiempoEnMilisegundos = fechaActual.getTime();
+// console.log(tiempoEnMilisegundos);
 
 const postSave = async(postInfo) =>{
     const response = await fetch(URL_FIREBASE, {
@@ -83,6 +88,8 @@ const postSave = async(postInfo) =>{
     console.log(response)
     return data
 };
+
+
 
 
 /**
@@ -103,6 +110,9 @@ saveInfo.addEventListener('click', async function () {
         postInfo.url = newImage;
         postInfo.description = newDescription;
         postInfo.tags = selectedTags; 
+        const dateNow = new Date();
+        const dateNowString = dateNow.toDateString();
+        postInfo.date = dateNowString
         //console.log(newTitle);
         postSave(postInfo);
         imageUrl.value = ""
