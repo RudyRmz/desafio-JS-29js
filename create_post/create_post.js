@@ -3,15 +3,13 @@ const postTitle = document.getElementById('postTitle');
 const description = document.getElementById('postDescription');
 const saveInfo = document.getElementById('saveInfo');
 const emptyTitleAlert = document.getElementById('emptyTitleAlert');
-
-
 const selectElement = document.getElementById('tags'); 
 const selectedTagsContainer = document.getElementById('selectedTagsContainer'); 
 const maxSelectedTags = 4;
 let selectedTags = [];
 // ETIQUETAS
 const tagsArray = [
-    "webdev", "javascript", "beginners", "programming", "tutorial", "react", "python"
+    "webdev", "javascript", "beginners", "programming", "tutorial", "react", "python", "css", "frontend"
 ];
 
 for (let i = 0; i < tagsArray.length; i++) {
@@ -70,10 +68,22 @@ function addSelectedTag(tag) {
 
 const postInfo = {
     url: '',
-    titulo: '',
+    title: '',
     tags: [],
     description: '',
 }
+
+const postSave = async(postInfo) =>{
+    const response = await fetch(URL_FIREBASE, {
+        method: 'POST',
+        // headers: { 'Content-type' : 'application/json;charset=UTF-8'},
+        body: JSON.stringify(postInfo), 
+    });
+    let data = await response.json()
+    console.log(response)
+    return data
+};
+
 
 /**
  * Este evento se activa cuando el usuario hace clic en el botón "Save Changes".
@@ -85,34 +95,31 @@ saveInfo.addEventListener('click', async function () {
     const newImage = imageUrl.value.trim();
     const newDescription = description.value;
 
-    if (newTitle === '') { 
+    if (newTitle === "" || newImage ==="" || newDescription ==="") { 
         emptyTitleAlert.classList.remove('d-none');
     } else {
         emptyTitleAlert.classList.add('d-none');
-        postInfo.titulo = newTitle;
+        postInfo.title = newTitle;
         postInfo.url = newImage;
         postInfo.description = newDescription;
         postInfo.tags = selectedTags; 
-        console.log(newTitle);
-        await postSave();
-        
-        try {
-            window.location.href = "../index.html";
-        } catch (error) {
-            console.error("Error al guardar la información:", error);
-        }
+        //console.log(newTitle);
+        postSave(postInfo);
+        imageUrl.value = ""
+        postTitle.value = ""
+        description.value = ""
+        selectedTagsContainer.value = ""
+        alert("Post save correctly")
+        // try {
+        //     window.location.href = "../index.html";
+        // } catch (error) {
+        //     console.error("Error al guardar la información:", error);
+        // }
     }
 });
 
-const URL_FIREBASE='https://devs-imparables-default-rtdb.firebaseio.com/.json'
+const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto/.json"
 
-const postSave = async() =>{
-    const response = await fetch(URL_FIREBASE, {
-        method: 'POST',
-        headers: { 'Content-type' : 'application/json;charset=UTF-8'},
-        body: JSON.stringify(postInfo), 
-    });
-};
 
 
 //Información INPUTS
