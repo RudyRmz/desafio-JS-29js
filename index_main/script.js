@@ -9,6 +9,133 @@ const getAllPosts = async ()=>{
     return data
 }
 
+const createPost = (postData)=>{
+  let {date, description, tags, title, url} = postsData
+
+  let post_container = document.createElement("div")
+  post_container.classList.add("card")
+  post_container.setAttribute("id", "post_container")
+
+  let post_image =  document.createElement("img")
+  post_image.setAttribute("id", "post_image")
+  post_image.setAttribute("src", url)
+  post_image.classList.add("card-img-top")
+
+  let div_body = document.createElement("div")
+  div_body.classList.add("card-body")
+  div_body.setAttribute("id", "div_body")
+
+  let div_autor = document.createElement("div")
+  div_autor.setAttribute.apply("id", "div_autor")
+  div_autor.classList.add("autor__container", "d-flex", "d-row", "align-items-center", "ms-1")
+
+  let autor_image = document.createElement("img")
+  autor_image.setAttribute("id", "autor_image")
+  autor_image.setAttribute("src", "...")
+  autor_image.classList.add("autor__pic")
+
+  let divAutor_info = document.createElement(div)
+  divAutor_info.setAttribute("id", "autor_info")
+  divAutor_info.classList.add("autor-info__container", "d-flex", "flex-column", "ms-2")
+
+  let spanAutor = document.createElement("span")
+  spanAutor.classList("autor__label")
+  spanAutor.innerText = "Nombre del autor"
+
+  let spanDate = document.createElement("span")
+  spanDate.classList.add("date__label")
+  spanDate.innerText = date
+
+  let ancor_title = document.createElement("a")
+  ancor_title.setAttribute("id", "title_post")
+  ancor_title.setAttribute("href", "...")
+  ancor_title.classList.add("card-title__link", "link-underline-light", "text-dark")
+
+  let postTitle = document.createElement("h3")
+  postTitle.classList.add("card-title", "card-title-lg", "mt-3", "ms-md-5", "ms-lg-5", "d-none", "d-md-block", "d-lg-block")
+  postTitle.innerText = title
+
+  let spanTitle = document.createElement("span")
+  spanTitle.classList.add("card-title", "card-title-sm", "mt-3", "ms-md-5", "ms-lg-5", "d-sm-block", "d-md-none", "d-lg-none")
+  spanTitle.innerText = title
+
+  let ulTagsList = document.createElement("ul")
+  ulTagsList.setAttribute("id", "tags_list")
+  ulTagsList.classList.add("tags__container", "list-unstyled", "d-flex", "flex-wrap", "ms-md-5", "ms-lg-5")
+
+  let liTag1 = document.createElement("li")
+  liTag1.classList.add("p-1")
+  liTag1.innerText = tags
+  
+  let liTag2 = document.createElement("li")
+  liTag2.classList.add("ms-3")
+  liTag2.innerText = tags
+
+  let liTag3 = document.createElement("li")
+  liTag3.classList.add("ms-3")
+  liTag3.innerText = tags
+  
+  let liTag4 = document.createElement("li")
+  liTag4.classList.add("ms-3")
+  liTag4.innerText = tags
+
+  let divInfoContainer = document.createElement("div")
+  divInfoContainer.classList.add("info__container", "d-flex", "justify-content-between", "align-items-center", "ms-md-5", "ms-lg-5")
+
+  let divDetailContainer = document.createElement("div")
+  divDetailContainer.classList.add("detail__container", "d-flex", "align-items-center")
+
+  let ancorReactionLink = document.createElement("a")
+  ancorReactionLink.setAttribute("id", "reaction_link")
+  ancorReactionLink.setAttribute("href", "")
+  ancorReactionLink.classList.add("reactions__link", "link-underline-light", "d-flex", "align-items-center")
+
+  let divReactionPicHeart = document.createElement("div")
+  divReactionPicHeart.classList.add("reactions-pic__container", "z-3")
+
+  let picHeart = document.createElement(img)
+  picHeart.setAttribute("src", "/src/heart.svg")
+  picHeart.classList.add("reaction__pic")
+
+  let divReactionPicHands = document.createElement("div")
+  divReactionPicHands.classList.add("reactions-pic__container", "reaction__pic--back", "position-relative")
+
+  let picHands = document.createElement(img)
+  picHands.setAttribute("src", "/src/raised-hands.svg")
+  picHands.classList.add("reaction__pic")
+
+  let spanReaction = document.createElement("span")
+  spanReaction.classList.add("reactions__label", "text-primary-emphasis", "d-none", "d-md-inline", "d-lg-inline")
+  spanReaction.innerText = "5 Reactions"
+
+  let ancorComments = document.createElement("a")
+  ancorComments.classList.add("comments__link", "link-underline-light", "d-flex", "align-items-center", "ms-4")
+  ancorComments.setAttribute("href", "")
+
+  let imageComments = document.createElement("img")
+  imageComments.setAttribute("src", "/src/comments.svg")
+  imageComments.classList.add("comments__pic")
+
+  let spanNumberComments = document.createElement("span")
+  spanNumberComments.classList.add("number-comments__label", "text-primary-emphasis")
+  spanNumberComments.innerText = "2"
+
+  let spanCommentsCard = document.createElement("span")
+  spanCommentsCard.classList.add("comments__label", "text-primary-emphasis", "d-none", "d-md-inline", "d-lg-inline")
+  spanCommentsCard.innerText = "Comments"
+
+  let divTimeContainer = document.createElement("div")
+  divTimeContainer.classList.add("time__container")
+
+  let spanTimeContainer = document.createElement("span")
+  spanTimeContainer.classList.add("min-read__container", "me-2")
+  spanTimeContainer.innerText = "2 min read"
+
+  let imgBookmark = document.createElement("img")
+  imgBookmark.setAttribute("src", "/src/bookmark.svg")
+  imgBookmark.classList.add("bookmark__pic")
+}
+
 
 // const URL_FIREBASE =
 //   "https://devs-imparables-default-rtdb.firebaseio.com/.json";
