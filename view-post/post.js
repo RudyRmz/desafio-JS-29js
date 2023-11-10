@@ -1,15 +1,24 @@
-const URL_API = 'https://devs-imparables-default-rtdb.firebaseio.com/';
+const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto/.json"
 
-const search = window.location.search
-//console.log(search);
-const url = new URLSearchParams(search)
-const ID_POST = url.get('id');
+let sectionCards =  document.getElementById("section_cards")
 
-const postImg = document.querySelector('#post-cover')
-const postTitle = document.querySelector('#post-title');
-const postDescription = document.querySelector('#post-description');
+const getAllPosts = async ()=>{
+    let reponse  =  fetch(URL_FIREBASE)
+    let data = await reponse.json()
+    console.log(data)
+    return data
+}
 
-const buttonEdit = document.querySelector('#buttonEdit')
+// const search = window.location.search
+// //console.log(search);
+// const url = new URLSearchParams(search)
+// const ID_POST = url.get('id');
+
+// const postImg = document.querySelector('#post-cover')
+// const postTitle = document.querySelector('#post-title');
+// const postDescription = document.querySelector('#post-description');
+
+// const buttonEdit = document.querySelector('#buttonEdit')
 
 //buttonEdit.dataset.post = ID_POST
 
@@ -62,33 +71,33 @@ const buttonEdit = document.querySelector('#buttonEdit')
 // }
 
 // Boton editar
-buttonEdit.addEventListener('click', (event) => {
-    console.log(window);
-    const elementToEdit = event.target.dataset.post
+// buttonEdit.addEventListener('click', (event) => {
+//     console.log(window);
+//     const elementToEdit = event.target.dataset.post
 
-    // para cambiar de vista
-    //window.location.href = 'http://127.0.0.1:5500/17-Crud/update/'
-    //window.location.href = 'http://127.0.0.1:5500/17-Crud/update/?id=' + elementToEdit + '&test=hola';
-    window.location.href = 'http://127.0.0.1:5500/edit_post/?id=' + elementToEdit
-    //window.location.pathname = '17-CRUD/update/'
-})
+//     // para cambiar de vista
+//     //window.location.href = 'http://127.0.0.1:5500/17-Crud/update/'
+//     //window.location.href = 'http://127.0.0.1:5500/17-Crud/update/?id=' + elementToEdit + '&test=hola';
+//     window.location.href = 'http://127.0.0.1:5500/edit_post/?id=' + elementToEdit
+//     //window.location.pathname = '17-CRUD/update/'
+// })
 
-// Traer informacion de ese hash
-const getInfoById = async () => {
-    //const url = URL_API + ID_POST + '.json'
-    const url = URL_API + '-NeugAeo2dr-wmPly7s0' + '.json'
-    console.log(url);
-    const info = await fetch(url)
-    console.log(info);
+// // Traer informacion de ese hash
+// const getInfoById = async () => {
+//     //const url = URL_FIREBASE + ID_POST + '.json'
+//     const url = URL_FIREBASE + '-NeugAeo2dr-wmPly7s0' + '.json'
+//     console.log(url);
+//     const info = await fetch(url)
+//     console.log(info);
 
-    const parsed = await info.json()
-    console.log(parsed);
+//     const parsed = await info.json()
+//     console.log(parsed);
 
-    // Para que se muestren en los inputs
-    postImg.src = parsed.url
-    postTitle.textContent = parsed.titulo
-    postDescription.textContent = parsed.description
-}
+//     // Para que se muestren en los inputs
+//     postImg.src = parsed.url
+//     postTitle.textContent = parsed.titulo
+//     postDescription.textContent = parsed.description
+// }
 
-// console.log(getInfoById());
-getInfoById()
+// // console.log(getInfoById());
+// getInfoById()
