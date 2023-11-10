@@ -27,7 +27,7 @@ const createPost = (postData)=>{
   post_container.setAttribute("id", "post_container")
 
   post_container.addEventListener("click", () => {
-    window.open(`view-post/post.html?postId=${key}`, "_blank");
+    window.open(`/view-post/post.html?postId=${key}`, "_blank");
   });
 
   let post_image =  document.createElement("img")

@@ -1,13 +1,49 @@
-const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto/.json"
+const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto"
 
-let sectionCards =  document.getElementById("section_cards")
+let queryString = location.search
+console.log(queryString)
 
-const getAllPosts = async ()=>{
-    let reponse  =  fetch(URL_FIREBASE)
-    let data = await reponse.json()
-    console.log(data)
-    return data
+let params = new URLSearchParams(queryString)
+console.log(params)
+
+let postId = params.get("postId")
+console.log(postId)
+
+const getPostById = async (idPost) =>{
+    let reponse = await fetch(`${URL_FIREBASE}/${idPost}/.json`)
+    let data = await reponse.json();
+
+    // let {date, description, tags, title, url, reactions, key} = data;
+
+    if (data){
+        let {date, description, tags, title, url, reactions, key} = data;
+        document.getElementById("post-cover").src = url
+        document.getElementById("date-post").textContent = `Posted on ${date}`
+        document.getElementById("post-title").textContent = title
+        document.getElementById("post-description").textContent = description
+    }
+    // else {
+    //     document.getElementById("detail-wrapper").innerHTML = `
+    //     <div class="alert alert-secondary" role="alert">
+    //   No se encontró el contenido de esta entrada
+    // </div>
+    // <img class="w-100" src="https://thumbs.dreamstime.com/z/page-not-found-error-hand-drawn-vector-doodle-illustration-internet-connection-problem-concept-cat-holds-computer-mouse-119417440.jpg" alt="" />
+    //     `;
+    //   }
 }
+
+getPostById(postId)
+
+// const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto/.json"
+
+// let sectionCards =  document.getElementById("section_cards")
+
+// const getAllPosts = async ()=>{
+//     let reponse  =  fetch(URL_FIREBASE)
+//     let data = await reponse.json()
+//     console.log(data)
+//     return data
+// }
 
 // const search = window.location.search
 // //console.log(search);
