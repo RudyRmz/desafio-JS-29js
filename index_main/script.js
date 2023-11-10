@@ -19,6 +19,7 @@ const createPost = (postData)=>{
   let post_image =  document.createElement("img")
   post_image.setAttribute("id", "post_image")
   post_image.setAttribute("src", url)
+  post_image.setAttribute("loading","lazy")
   post_image.classList.add("card-img-top")
 
   let div_body = document.createElement("div")
@@ -91,11 +92,25 @@ const createPost = (postData)=>{
   ancorReactionLink.classList.add("reactions__link", "link-underline-light", "d-flex", "align-items-center")
 
   let divReactionPicHeart = document.createElement("div")
-  divReactionPicHeart.classList.add("reactions-pic__container", "z-3")
+  divReactionPicHeart.classList.add("reactions-pic__container", "reaction__pic--back", "position-relative")
 
   let picHeart = document.createElement("img")
   picHeart.setAttribute("src", "/src/heart.svg")
   picHeart.classList.add("reaction__pic")
+
+  let divReactionUnicorn = document.createElement("div")
+  divReactionUnicorn.classList.add("reactions-pic__container", "reaction__pic--back", "position-relative")
+
+  let picUnicorn = document.createElement("img")
+  picUnicorn.setAttribute("src", "/src/unicorn.svg")
+  picUnicorn.classList.add("reaction__pic")
+
+  let divReactionExploding = document.createElement("div")
+  divReactionExploding.classList.add("reactions-pic__container", "reaction__pic--back", "position-relative")
+
+  let picExploding = document.createElement("img")
+  picExploding.setAttribute("src", "/src/exploding-head.svg")
+  picExploding.classList.add("reaction__pic")
 
   let divReactionPicHands = document.createElement("div")
   divReactionPicHands.classList.add("reactions-pic__container", "reaction__pic--back", "position-relative")
@@ -103,6 +118,13 @@ const createPost = (postData)=>{
   let picHands = document.createElement("img")
   picHands.setAttribute("src", "/src/raised-hands.svg")
   picHands.classList.add("reaction__pic")
+
+  let divReactionFire = document.createElement("div")
+  divReactionFire.classList.add("reactions-pic__container", "reaction__pic--back", "position-relative")
+
+  let picFire = document.createElement("img")
+  picFire.setAttribute("src", "/src/fire.svg")
+  picFire.classList.add("reaction__pic")
 
   let spanReaction = document.createElement("span")
   spanReaction.classList.add("reactions__label", "text-primary-emphasis", "d-none", "d-md-inline", "d-lg-inline")
@@ -137,9 +159,12 @@ const createPost = (postData)=>{
 
   divTimeContainer.append(spanTimeContainer,imgBookmark)
   ancorComments.append(imageComments,spanNumberComments,spanCommentsCard)
+  divReactionFire.append(picFire)
   divReactionPicHands.append(picHands)
+  divReactionExploding.append(picExploding)
+  divReactionUnicorn.append(picUnicorn)
   divReactionPicHeart.append(picHeart)
-  ancorReactionLink.append(divReactionPicHeart, divReactionPicHands,spanReaction)
+  ancorReactionLink.append(divReactionPicHeart, divReactionUnicorn,divReactionExploding,divReactionPicHands,divReactionFire,spanReaction)
   divDetailContainer.append(ancorReactionLink,ancorComments)
   divInfoContainer.append(divDetailContainer,divTimeContainer)
   ulTagsList.append(liTag1, liTag2, liTag3, liTag4)
