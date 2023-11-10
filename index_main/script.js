@@ -31,7 +31,7 @@ const createPost = (postData)=>{
 
   let autor_image = document.createElement("img")
   autor_image.setAttribute("id", "autor_image")
-  autor_image.setAttribute("src", "...")
+  autor_image.setAttribute("src", "https://avatars.githubusercontent.com/u/126934315?v=4")
   autor_image.classList.add("autor__pic")
 
   let divAutor_info = document.createElement("div")
@@ -40,7 +40,7 @@ const createPost = (postData)=>{
 
   let spanAutor = document.createElement("span")
   spanAutor.classList.add("autor__label")
-  spanAutor.innerText = "Nombre del autor"
+  spanAutor.innerText = "Rudy Ramírez"
 
   let spanDate = document.createElement("span")
   spanDate.classList.add("date__label")
@@ -65,19 +65,19 @@ const createPost = (postData)=>{
 
   let liTag1 = document.createElement("li")
   liTag1.classList.add("p-1")
-  liTag1.innerText = tags
+  liTag1.innerText = `#${tags}`
   
   let liTag2 = document.createElement("li")
   liTag2.classList.add("ms-3")
-  liTag2.innerText = tags
+  liTag2.innerText = `#${tags}`
 
   let liTag3 = document.createElement("li")
   liTag3.classList.add("ms-3")
-  liTag3.innerText = tags
+  liTag3.innerText = `#${tags}`
   
   let liTag4 = document.createElement("li")
   liTag4.classList.add("ms-3")
-  liTag4.innerText = tags
+  liTag4.innerText = `#${tags}`
 
   let divInfoContainer = document.createElement("div")
   divInfoContainer.classList.add("info__container", "d-flex", "justify-content-between", "align-items-center", "ms-md-5", "ms-lg-5")
