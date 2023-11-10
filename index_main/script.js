@@ -1,3 +1,5 @@
+let postsEntries =  [];
+
 const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto/.json"
 
 let sectionCards =  document.getElementById("section_cards")
@@ -5,16 +7,28 @@ let sectionCards =  document.getElementById("section_cards")
 const getAllPosts = async ()=>{
     let reponse  = await fetch(URL_FIREBASE)
     let data = await reponse.json()
+    let transformedData =  Object.entries(data).reduce((accum, current)=>{
+      return [...accum, {key: current[0], ...current[1]}]
+    }, [])
+    postsEntries = transformedData;
+    if (postsEntries){
+      printPosts(postsEntries)
+    }
+    console.log(postsEntries)
     console.log(data)
-    return data
+// return data
 }
 
 const createPost = (postData)=>{
-  let {date, description, tags, title, url, reactions} = postData
+  let {date, description, tags, title, url, reactions, key} = postData
 
   let post_container = document.createElement("div")
   post_container.classList.add("card", "mb-3")
   post_container.setAttribute("id", "post_container")
+
+  post_container.addEventListener("click", () => {
+    window.open(`view-post/post.html?postId=${key}`, "_blank");
+  });
 
   let post_image =  document.createElement("img")
   post_image.setAttribute("id", "post_image")
@@ -177,16 +191,18 @@ const createPost = (postData)=>{
   return post_container
 }
 
-const printPosts = async()=>{
+const printPosts = async(posts)=>{
   sectionCards.innerHTML =""
-  let posts = await getAllPosts()
-  Object.values(posts).forEach((post)=>{
+  //let posts = await getAllPosts()
+  posts.forEach((post) =>{
     let postEvent = createPost(post)
     sectionCards.append(postEvent)
   })
 } 
 
-printPosts()
+//printPosts()
+
+getAllPosts()
 
 
 // const URL_FIREBASE =
