@@ -10,10 +10,10 @@ const getAllPosts = async ()=>{
 }
 
 const createPost = (postData)=>{
-  let {date, description, tags, title, url} = postsData
+  let {date, description, tags, title, url} = postData
 
   let post_container = document.createElement("div")
-  post_container.classList.add("card")
+  post_container.classList.add("card", "mb-3")
   post_container.setAttribute("id", "post_container")
 
   let post_image =  document.createElement("img")
@@ -26,7 +26,7 @@ const createPost = (postData)=>{
   div_body.setAttribute("id", "div_body")
 
   let div_autor = document.createElement("div")
-  div_autor.setAttribute.apply("id", "div_autor")
+  div_autor.setAttribute("id", "div_autor")
   div_autor.classList.add("autor__container", "d-flex", "d-row", "align-items-center", "ms-1")
 
   let autor_image = document.createElement("img")
@@ -34,12 +34,12 @@ const createPost = (postData)=>{
   autor_image.setAttribute("src", "...")
   autor_image.classList.add("autor__pic")
 
-  let divAutor_info = document.createElement(div)
+  let divAutor_info = document.createElement("div")
   divAutor_info.setAttribute("id", "autor_info")
   divAutor_info.classList.add("autor-info__container", "d-flex", "flex-column", "ms-2")
 
   let spanAutor = document.createElement("span")
-  spanAutor.classList("autor__label")
+  spanAutor.classList.add("autor__label")
   spanAutor.innerText = "Nombre del autor"
 
   let spanDate = document.createElement("span")
@@ -93,14 +93,14 @@ const createPost = (postData)=>{
   let divReactionPicHeart = document.createElement("div")
   divReactionPicHeart.classList.add("reactions-pic__container", "z-3")
 
-  let picHeart = document.createElement(img)
+  let picHeart = document.createElement("img")
   picHeart.setAttribute("src", "/src/heart.svg")
   picHeart.classList.add("reaction__pic")
 
   let divReactionPicHands = document.createElement("div")
   divReactionPicHands.classList.add("reactions-pic__container", "reaction__pic--back", "position-relative")
 
-  let picHands = document.createElement(img)
+  let picHands = document.createElement("img")
   picHands.setAttribute("src", "/src/raised-hands.svg")
   picHands.classList.add("reaction__pic")
 
@@ -148,7 +148,20 @@ const createPost = (postData)=>{
   div_autor.append(autor_image,divAutor_info)
   div_body.append(div_autor,ancor_title,ulTagsList,divInfoContainer,)
   post_container.append(post_image,div_body)
+
+  return post_container
 }
+
+const printPosts = async()=>{
+  sectionCards.innerHTML =""
+  let posts = await getAllPosts()
+  Object.values(posts).forEach((post)=>{
+    let postEvent = createPost(post)
+    sectionCards.append(postEvent)
+  })
+} 
+
+printPosts()
 
 
 // const URL_FIREBASE =
