@@ -134,6 +134,20 @@ const createPost = (postData)=>{
   let imgBookmark = document.createElement("img")
   imgBookmark.setAttribute("src", "/src/bookmark.svg")
   imgBookmark.classList.add("bookmark__pic")
+
+  divTimeContainer.append(spanTimeContainer,imgBookmark)
+  ancorComments.append(imageComments,spanNumberComments,spanCommentsCard)
+  divReactionPicHands.append(picHands)
+  divReactionPicHeart.append(picHeart)
+  ancorReactionLink.append(divReactionPicHeart, divReactionPicHands,spanReaction)
+  divDetailContainer.append(ancorReactionLink,ancorComments)
+  divInfoContainer.append(divDetailContainer,divTimeContainer)
+  ulTagsList.append(liTag1, liTag2, liTag3, liTag4)
+  ancor_title.append(postTitle, spanTitle)
+  divAutor_info.append(spanAutor, spanDate)
+  div_autor.append(autor_image,divAutor_info)
+  div_body.append(div_autor,ancor_title,ulTagsList,divInfoContainer,)
+  post_container.append(post_image,div_body)
 }
 
 
