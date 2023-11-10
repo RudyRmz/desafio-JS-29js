@@ -72,11 +72,15 @@ const postInfo = {
     tags: [],
     description: '',
     date: '',
+    reactions: '',
+    dateMiliseconds: '',
 }
 
-// const fechaActual = new Date();
-// const tiempoEnMilisegundos = fechaActual.getTime();
-// console.log(tiempoEnMilisegundos);
+const fechaActual = new Date();
+const tiempoEnMilisegundos = fechaActual.getTime();
+console.log(tiempoEnMilisegundos);
+
+let randomNumber = Math.floor(Math.random()*50)
 
 const postSave = async(postInfo) =>{
     const response = await fetch(URL_FIREBASE, {
@@ -113,6 +117,8 @@ saveInfo.addEventListener('click', async function () {
         const dateNow = new Date();
         const dateNowString = dateNow.toDateString();
         postInfo.date = dateNowString
+        postInfo.dateMiliseconds = tiempoEnMilisegundos
+        postInfo.reactions = randomNumber
         //console.log(newTitle);
         postSave(postInfo);
         imageUrl.value = ""
@@ -120,6 +126,7 @@ saveInfo.addEventListener('click', async function () {
         description.value = ""
         selectedTagsContainer.value = ""
         alert("Post save correctly")
+        location.reload()
         // try {
         //     window.location.href = "../index.html";
         // } catch (error) {

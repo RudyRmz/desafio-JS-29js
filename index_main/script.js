@@ -10,7 +10,7 @@ const getAllPosts = async ()=>{
 }
 
 const createPost = (postData)=>{
-  let {date, description, tags, title, url} = postData
+  let {date, description, tags, title, url, reactions} = postData
 
   let post_container = document.createElement("div")
   post_container.classList.add("card", "mb-3")
@@ -106,7 +106,7 @@ const createPost = (postData)=>{
 
   let spanReaction = document.createElement("span")
   spanReaction.classList.add("reactions__label", "text-primary-emphasis", "d-none", "d-md-inline", "d-lg-inline")
-  spanReaction.innerText = "5 Reactions"
+  spanReaction.innerText = `${reactions} Reactions`
 
   let ancorComments = document.createElement("a")
   ancorComments.classList.add("comments__link", "link-underline-light", "d-flex", "align-items-center", "ms-4")
