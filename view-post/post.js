@@ -29,6 +29,11 @@ const getPostById = async (idPost) =>{
             window.open(`/edit_post/edit_post.html?postId=${postId}`, "_blank");
         });
     }
+
+    const iconButton = document.getElementById("icon-index")
+iconButton.addEventListener("click", ()=>{
+    window.open("/index_main/index.html", "_self")
+})
     // else {
     //     document.getElementById("detail-wrapper").innerHTML = `
     //     <div class="alert alert-secondary" role="alert">

@@ -7,6 +7,12 @@ const selectElement = document.getElementById('tags');
 const selectedTagsContainer = document.getElementById('selectedTagsContainer'); 
 const maxSelectedTags = 4;
 let selectedTags = [];
+
+const iconButton = document.getElementById("icon-index")
+iconButton.addEventListener("click", ()=>{
+    window.open("/index_main/index.html", "_self")
+})
+
 // ETIQUETAS
 const tagsArray = [
     "webdev", "javascript", "beginners", "programming", "tutorial", "react", "python", "css", "frontend"

@@ -13,6 +13,10 @@ const input_url = document.querySelector("#imageUrl");
 const input_tittle = document.querySelector('#postTitle');
 const input_post = document.querySelector('#floatingTextarea');
 const buttonSave = document.querySelector('#saveChanges');
+const iconButton = document.getElementById("icon-index")
+iconButton.addEventListener("click", ()=>{
+    window.open("/index_main/index.html", "_self")
+})
 
 
 const getPostById = async (idPost) =>{
