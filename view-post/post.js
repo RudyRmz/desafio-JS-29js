@@ -26,7 +26,7 @@ const getPostById = async (idPost) =>{
 
         document.getElementById("buttonEdit")
         buttonEdit.addEventListener("click", () => {
-            window.open(`/edit_post/edit_post.html?postId=${postId}`, "_blank");
+            window.open(`/edit_post/edit_post.html?postId=${postId}`, "_self");
         });
     }
 

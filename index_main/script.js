@@ -27,7 +27,7 @@ const createPost = (postData)=>{
   post_container.setAttribute("id", "post_container")
 
   post_container.addEventListener("click", () => {
-    window.open(`/view-post/post.html?postId=${key}`, "_blank");
+    window.open(`/view-post/post.html?postId=${key}`, "_self");
   });
 
   let post_image =  document.createElement("img")
@@ -63,7 +63,7 @@ const createPost = (postData)=>{
 
   let ancor_title = document.createElement("a")
   ancor_title.setAttribute("id", "title_post")
-  ancor_title.setAttribute("href", "...")
+  //ancor_title.setAttribute("href", "...")
   ancor_title.classList.add("card-title__link", "link-underline-light", "text-dark")
 
   let postTitle = document.createElement("h3")
