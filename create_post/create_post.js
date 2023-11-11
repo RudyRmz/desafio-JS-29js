@@ -10,12 +10,12 @@ let selectedTags = [];
 
 const iconButton = document.getElementById("icon-index")
 iconButton.addEventListener("click", ()=>{
-    window.open("/index_main/index.html", "_self")
+    window.open("/index.html", "_self")
 })
 
 const cancelButton = document.getElementById("cancelBtn")
 cancelButton.addEventListener("click", ()=>{
-    window.open("/index_main/index.html", "_self")
+    window.open("/index.html", "_self")
 })
 
 // ETIQUETAS

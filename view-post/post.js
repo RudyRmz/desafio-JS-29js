@@ -37,7 +37,7 @@ const getPostById = async (idPost) =>{
                 // La opción Aceptar fue seleccionada
                 alert("You deleted the post")
                 deleteUser(postId)
-                window.open("/index_main/index.html", "_self")
+                window.open("/index.html", "_self")
                 // Aquí puedes agregar la lógica para guardar los cambios o realizar las acciones necesarias.
             } else {
                 // La opción Cancelar fue seleccionada
@@ -63,7 +63,7 @@ const getPostById = async (idPost) =>{
 
 const iconButton = document.getElementById("icon-index")
 iconButton.addEventListener("click", ()=>{
-    window.open("/index_main/index.html", "_self")
+    window.open("/index.html", "_self")
 })
 
 let createPostButton =  document.getElementById("create_post__button")
