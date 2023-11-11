@@ -52,6 +52,8 @@ const patchPost = async () => {
     buttonSave.addEventListener('click', () => {
     console.log("Guardando")
     patchPost()
+    alert("The post was saved correctly")
+    window.open(`/view-post/post.html?postId=${postId}`, "_self");
 });
 
     // const updatePost = async() => {
