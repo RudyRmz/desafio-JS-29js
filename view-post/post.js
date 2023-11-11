@@ -30,10 +30,16 @@ const getPostById = async (idPost) =>{
         });
     }
 
-    const iconButton = document.getElementById("icon-index")
+const iconButton = document.getElementById("icon-index")
 iconButton.addEventListener("click", ()=>{
     window.open("/index_main/index.html", "_self")
 })
+
+let createPostButton =  document.getElementById("create_post__button")
+createPostButton.addEventListener("click",()=>{
+  window.open("/create_post/create_post.html", "_self");
+})
+
     // else {
     //     document.getElementById("detail-wrapper").innerHTML = `
     //     <div class="alert alert-secondary" role="alert">

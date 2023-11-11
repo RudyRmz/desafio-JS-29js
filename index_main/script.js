@@ -4,6 +4,11 @@ const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto/.j
 
 let sectionCards =  document.getElementById("section_cards")
 
+let createPostButton =  document.getElementById("create_post__button")
+createPostButton.addEventListener("click",()=>{
+  window.open("/create_post/create_post.html", "_self");
+})
+
 const getAllPosts = async ()=>{
     let reponse  = await fetch(URL_FIREBASE)
     let data = await reponse.json()

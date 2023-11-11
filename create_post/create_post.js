@@ -13,6 +13,11 @@ iconButton.addEventListener("click", ()=>{
     window.open("/index_main/index.html", "_self")
 })
 
+const cancelButton = document.getElementById("cancelBtn")
+cancelButton.addEventListener("click", ()=>{
+    window.open("/index_main/index.html", "_self")
+})
+
 // ETIQUETAS
 const tagsArray = [
     "webdev", "javascript", "beginners", "programming", "tutorial", "react", "python", "css", "frontend"
@@ -198,9 +203,9 @@ inputDescription.addEventListener("click", function() {
 
 //Boton de cancelar
 
-const cancelBtn = document.getElementById("cancelBtn");
+// const cancelBtn = document.getElementById("cancelBtn");
 
-cancelBtn.addEventListener("click", () => {
-    window.location.href = "../index.html";
-});
+// cancelBtn.addEventListener("click", () => {
+//     window.location.href = "../index.html";
+// });
 
