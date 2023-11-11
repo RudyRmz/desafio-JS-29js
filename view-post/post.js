@@ -28,7 +28,38 @@ const getPostById = async (idPost) =>{
         buttonEdit.addEventListener("click", () => {
             window.open(`/edit_post/edit_post.html?postId=${postId}`, "_self");
         });
+        
+        document.getElementById("buttonDelete")
+        buttonDelete.addEventListener("click", ()=>{
+            const respuesta = confirm("Are you sure you want to delete the post?");
+
+            if (respuesta) {
+                // La opción Aceptar fue seleccionada
+                alert("You deleted the post")
+                deleteUser(postId)
+                window.open("/index_main/index.html", "_self")
+                // Aquí puedes agregar la lógica para guardar los cambios o realizar las acciones necesarias.
+            } else {
+                // La opción Cancelar fue seleccionada
+                console.log("Se seleccionó Cancelar.");
+                // Aquí puedes manejar la situación en la que se cancela la acción.
+            }
+            //alert("le diste click a delete")
+            
+        })
     }
+
+    const deleteUser = async (userId) => {
+        let response = await fetch(
+        `${URL_FIREBASE}/${userId}/.json`,
+        {
+            method: "DELETE",
+        }
+        );
+        let data = await response.json();
+        console.log(data);
+        return data;
+    };
 
 const iconButton = document.getElementById("icon-index")
 iconButton.addEventListener("click", ()=>{
