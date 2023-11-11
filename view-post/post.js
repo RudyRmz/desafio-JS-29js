@@ -17,6 +17,7 @@ const getPostById = async (idPost) =>{
 
     if (data){
         let {date, description, tags, title, url, reactions, key} = data;
+        document.getElementById("head-title").textContent = title;
         document.getElementById("post-cover").src = url
         document.getElementById("date-post").textContent = `Posted on ${date}`
         document.getElementById("post-title").textContent = title
