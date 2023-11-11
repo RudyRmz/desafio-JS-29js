@@ -1,3 +1,4 @@
+
 const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto"
 
 let queryString = location.search
@@ -12,7 +13,7 @@ console.log(postId)
 const getPostById = async (idPost) =>{
     let reponse = await fetch(`${URL_FIREBASE}/${idPost}/.json`)
     let data = await reponse.json();
-
+    console.log(data)
     // let {date, description, tags, title, url, reactions, key} = data;
 
     if (data){
@@ -22,6 +23,11 @@ const getPostById = async (idPost) =>{
         document.getElementById("date-post").textContent = `Posted on ${date}`
         document.getElementById("post-title").textContent = title
         document.getElementById("post-description").textContent = description
+
+        document.getElementById("buttonEdit")
+        buttonEdit.addEventListener("click", () => {
+            window.open(`/edit_post/edit_post.html?postId=${postId}`, "_blank");
+        });
     }
     // else {
     //     document.getElementById("detail-wrapper").innerHTML = `
