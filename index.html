@@ -42,12 +42,27 @@
                         <img src="/src/search.svg" alt="">
                     </button>
                     <form class="container-fluid justify-content-start d-none d-md-block d-lg-block" ">
+                        <button type="button" class="btn btn-outline-primary d-none"id="login__button">Log in</button>
                   <button type="button" class="btn btn-outline-primary"id="create_post__button">Create Post</button>
                     </form>
                     <img src="/src/notification.svg" alt="" class="me-2" style="width:25px; height:25px;">
-                    <img style="width: 35px; height: 35px; border-radius: 100%; border-color:black; border:1px solid;"
-                        src="/src/avatar-rudy.webp"
-                        alt="">
+
+                    <div class="btn-group">
+                        <button type="button" class="" style="border: none;" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img style="width: 35px; height: 35px; border-radius: 100%; border-color:black; border:1px solid;"
+                            src="/src/avatar-rudy.webp"
+                            alt="">
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><button class="dropdown-item" type="button">Rudy Ramírez <br> @rudyramirez</button></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><button class="dropdown-item" type="button">Create Post</button></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><button class="dropdown-item" type="button">Sign Out</button></li>
+                        </ul>
+                      </div>
+
+                    
                 </div>
             </div>
         </nav>
