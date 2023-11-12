@@ -23,7 +23,8 @@
                     </button>
                     <a class="navbar-brand" id="icon-index">
                         <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
-                            alt="Logo" width="50" height="40" class="d-inline-block align-text-top" style="cursor: pointer;">
+                            alt="Logo" width="50" height="40" class="d-inline-block align-text-top"
+                            style="cursor: pointer;">
                     </a>
                     <div class="search__container d-none d-lg-block d-md-block" style="width: 420px;">
                         <form class="d-flex position-relative" id="search__bar">
@@ -43,22 +44,27 @@
                         <img src="" alt="">
                     </button>
                     <form class="container-fluid justify-content-start d-none d-md-block d-lg-block">
-                        <button type="button" class="btn btn-outline-primary"id="login__button">Log in</button>
-                        <button type="button" class="btn btn-outline-primary d-none"
-                            id="create_post__button">Create Post</button>
+                        <button type="button" class="btn btn-outline-primary" id="login__button">Log in</button>
+                        <button type="button" class="btn btn-outline-primary d-none" id="create_post__button">Create
+                            Post</button>
                     </form>
-                    <img src="/src/notification.svg" alt="" class="me-2 d-none" id="notificationIcon" style="width:25px; height:25px; align-self: center;" id="notificationIcon">
+                    <img src="/src/notification.svg" alt="" class="me-2 d-none" id="notificationIcon"
+                        style="width:25px; height:25px; align-self: center;" id="notificationIcon">
                     <div class="btn-group d-none" id="button_dropdown">
-                        <button type="button" class="" style="border: none;" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" class="" style="border: none;" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <img style="width: 35px; height: 35px; border-radius: 100%; border-color:black; border:1px solid;"
-                            src="/src/avatar-rudy.webp"
-                            alt="">
+                                src="/src/avatar-rudy.webp" alt="">
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><button class="dropdown-item" type="button">Rudy Ramírez <br> @rudyramirez</button></li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><button class="dropdown-item" type="button">Create Post</button></li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><button class="dropdown-item" type="button" id="signOutButton">Sign Out</button></li>
                         </ul>
                     </div>
@@ -87,8 +93,8 @@
                     <div class="card">
                         <img src="" class="card-img-top" alt="..." id="post-cover">
                         <section class="poster-information__container d-flex mb-3 ps-4 pt-3 gap-3">
-                            <div class="image__container ps-4"><img class="rounded-circle"  src="/src/avatar-rudy.webp" style="width: 48px; height: 48px;;"
-                                    alt="">
+                            <div class="image__container ps-4"><img class="rounded-circle" src="/src/avatar-rudy.webp"
+                                    style="width: 48px; height: 48px;;" alt="">
                             </div>
 
                             <div class="info">
@@ -149,12 +155,35 @@
                             <div class="justify-content-start justify-content-end">
                                 <h5 class="card-title ">Top comments (2) <a href="#"
                                         class="btn btn-outline-secondary ">Subscribe</a></h5>
+                                <div class="comment__container d-flex justify-content-between mt-3">
+                                    <img src="/src/autor-comment-1.webp" alt="" class="autor-comment__pic" style="border-radius: 100%;
+                                            width: 35px; height: 35px;" />
+                                    <div class="comment-detail__container rounded p-3 ms-1 w-100">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here"
+                                                id="floatingTextarea2"
+                                                style="height: 100px; resize: none; width: auto;"></textarea>
+                                            <label for="floatingTextarea2">Add to the discussion</label>
+                                            <button type="button" class="btn btn-info mt-3">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments__container mt-3 ms-md-3 ms-lg-3">
+                                    <div class="comment__container d-flex">
+                                        <img src="/src/autor-comment-2.webp" alt="" class="autor-comment__pic" style="border-radius: 100%;
+                                        width: 35px; height: 35px;"/>
+                                        <div class="comment-detail__container rounded p-3 ms-1 w-100" style="border: 1px gray solid;">
+                                            <span class="text-dark-emphasis"><strong>Ayyoub-ESSADEQ</strong></span><span
+                                                class="text-dark-emphasis"> 4 days ago</span>
+                                            <p>You must check Cocaptain vscode extension.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
 
                         </div>
-                        <p class="card-text ps-4">Some quick example text to build on the card title and make up the
-                            bulk of the card's content.</p>
+                        <p class="card-text ps-4 mb-3" style="align-self: center;">Code of Conduct • Report abuse</p>
                     </div>
                 </section>
                 <section class="card mt-3 px-5 pt-2">
