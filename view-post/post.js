@@ -117,6 +117,26 @@ document.getElementById("signOutButton").addEventListener("click", ()=>{
   
   })
 
+//codigo para validar si hay token de inicio de sesion de usuario y renderizar o no ciertos elementos
+  const validTokenUser = () =>{
+    let token = localStorage.getItem("token");
+    //console.log(token)
+    if(token){
+      document.getElementById("button_dropdown").classList.remove("d-none")
+      document.getElementById("create_post__button").classList.remove("d-none")
+      document.getElementById("notificationIcon").classList.remove("d-none")
+      document.getElementById("login__button").classList.add("d-none")
+      
+    }else{
+      document.getElementById("button_dropdown").classList.add("d-none")
+      document.getElementById("create_post__button").classList.add("d-none")
+      document.getElementById("notificationIcon").classList.add("d-none")
+      document.getElementById("login__button").classList.remove("d-none")
+    }
+  }
+  
+validTokenUser()
+
 // const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto/.json"
 
 // let sectionCards =  document.getElementById("section_cards")
