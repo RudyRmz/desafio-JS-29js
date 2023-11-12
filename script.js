@@ -24,6 +24,58 @@ const getAllPosts = async ()=>{
 // return data
 }
 
+const validTokenUser = () =>{
+  let token = localStorage.getItem("token");
+  //console.log(token)
+  if(token){
+    document.getElementById("button_dropdown").classList.remove("d-none")
+    document.getElementById("create_post__button").classList.remove("d-none")
+    document.getElementById("notificationIcon").classList.remove("d-none")
+    document.getElementById("login__button").classList.add("d-none")
+    
+  }else{
+    document.getElementById("button_dropdown").classList.add("d-none")
+    document.getElementById("create_post__button").classList.add("d-none")
+    document.getElementById("notificationIcon").classList.add("d-none")
+    document.getElementById("login__button").classList.remove("d-none")
+  }
+}
+
+validTokenUser()
+
+document.getElementById("signOutButton").addEventListener("click", ()=>{
+  const respuesta = confirm("Are you sure you want to sign out?")
+  if (respuesta) {
+    // La opción Aceptar fue seleccionada
+    alert("You sign out")
+    // document.getElementById("button_dropdown").classList.add("d-none")
+    // document.getElementById("create_post__button").classList.add("d-none")
+    // document.getElementById("notificationIcon").classList.add("d-none")
+    // document.getElementById("login__button").classList.remove("d-none")
+
+    logout()
+    location.reload();
+    //location.reload();
+
+    // Aquí puedes agregar la lógica para guardar los cambios o realizar las acciones necesarias.
+} else {
+    // La opción Cancelar fue seleccionada
+    console.log("Se seleccionó Cancelar.");
+    // Aquí puedes manejar la situación en la que se cancela la acción.
+}
+  //alert("diste click a sign out")
+
+})
+
+document.getElementById("login__button").addEventListener("click", ()=>{
+  window.open("/login/login.html", "_self");
+})
+
+
+const logout = () => {
+  localStorage.removeItem("token");
+};
+
 const createPost = (postData)=>{
   let {date, description, tags, title, url, reactions, key} = postData
 

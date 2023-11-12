@@ -57,7 +57,7 @@ validarFormulario = () =>{
 }
 
 
-const logout = () => {
-    localStorage.removeItem("token");
-};
+// const logout = () => {
+//     localStorage.removeItem("token");
+// };
 
