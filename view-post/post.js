@@ -10,6 +10,7 @@ console.log(params)
 let postId = params.get("postId")
 console.log(postId)
 
+
 const getPostById = async (idPost) =>{
     let reponse = await fetch(`${URL_FIREBASE}/${idPost}/.json`)
     let data = await reponse.json();
@@ -82,6 +83,39 @@ createPostButton.addEventListener("click",()=>{
 }
 
 getPostById(postId)
+
+////////Codigo botones navbar
+document.getElementById("login__button").addEventListener("click", ()=>{
+    window.open("/login/login.html", "_self");
+})
+
+const logout = () => {
+    localStorage.removeItem("token");
+};
+
+document.getElementById("signOutButton").addEventListener("click", ()=>{
+    const respuesta = confirm("Are you sure you want to sign out?")
+    if (respuesta) {
+      // La opción Aceptar fue seleccionada
+      alert("You sign out")
+      // document.getElementById("button_dropdown").classList.add("d-none")
+      // document.getElementById("create_post__button").classList.add("d-none")
+      // document.getElementById("notificationIcon").classList.add("d-none")
+      // document.getElementById("login__button").classList.remove("d-none")
+  
+      logout()
+      location.reload();
+      //location.reload();
+  
+      // Aquí puedes agregar la lógica para guardar los cambios o realizar las acciones necesarias.
+  } else {
+      // La opción Cancelar fue seleccionada
+      console.log("Se seleccionó Cancelar.");
+      // Aquí puedes manejar la situación en la que se cancela la acción.
+  }
+    //alert("diste click a sign out")
+  
+  })
 
 // const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto/.json"
 
