@@ -125,12 +125,15 @@ document.getElementById("signOutButton").addEventListener("click", ()=>{
       document.getElementById("button_dropdown").classList.remove("d-none")
       document.getElementById("create_post__button").classList.remove("d-none")
       document.getElementById("notificationIcon").classList.remove("d-none")
+      document.getElementById("buttonEdit").classList.remove("d-none")
+      document.getElementById("buttonDelete").classList.remove("d-none")
       document.getElementById("login__button").classList.add("d-none")
-      
     }else{
       document.getElementById("button_dropdown").classList.add("d-none")
       document.getElementById("create_post__button").classList.add("d-none")
       document.getElementById("notificationIcon").classList.add("d-none")
+      document.getElementById("buttonEdit").classList.add("d-none")
+      document.getElementById("buttonDelete").classList.add("d-none")
       document.getElementById("login__button").classList.remove("d-none")
     }
   }
