@@ -262,6 +262,26 @@ const printPosts = async(posts)=>{
 getAllPosts()
 
 
+///codigo para el filtro
+let filterDataSearch = document.getElementById("data-search");
+
+filterDataSearch.addEventListener("keyup", (event) => {
+  // let filterAlert = document.getElementById("filter-alert");
+  // filterAlert.classList.add("d-none");
+
+  let value = event.target.value;
+  //console.log(value)
+  let filterResult = postsEntries.filter((post) =>
+    post.title.toLowerCase().includes(value.toLowerCase())
+  );
+  if (!filterResult.length) {
+    //filterAlert.classList.remove("d-none");
+    alert("no hay coincidencias")
+  }
+  console.log(filterResult);
+  printPosts(filterResult);
+});
+
 // const URL_FIREBASE =
 //   "https://devs-imparables-default-rtdb.firebaseio.com/.json";
 
