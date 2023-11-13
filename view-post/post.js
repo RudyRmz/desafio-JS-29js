@@ -62,6 +62,8 @@ const getPostById = async (idPost) =>{
         return data;
     };
 
+
+
 const iconButton = document.getElementById("icon-index")
 iconButton.addEventListener("click", ()=>{
     window.open("/index.html", "_self")
@@ -118,6 +120,7 @@ document.getElementById("signOutButton").addEventListener("click", ()=>{
   })
 
 //codigo para validar si hay token de inicio de sesion de usuario y renderizar o no ciertos elementos
+
   const validTokenUser = () =>{
     let token = localStorage.getItem("token");
     //console.log(token)
@@ -139,6 +142,72 @@ document.getElementById("signOutButton").addEventListener("click", ()=>{
   }
   
 validTokenUser()
+
+///codigo para los comentarios
+
+const URL_FIREBASE_USERS= "https://javascript29js-default-rtdb.firebaseio.com/users"
+
+let userNameComment = ""
+let userImgComment = ""
+const fechaActual = new Date();
+
+const getUserId = async () =>{
+  let reponse = await fetch(`${URL_FIREBASE_USERS}/.json`)
+  let data = await reponse.json();
+  console.log(data)
+  //let token = data.user1.token
+  //console.log(token)
+  userNameComment = data.user1.userName
+  userImgComment = data.user1.avatar
+}
+getUserId()
+
+//let comments = [{autorImg:"" , autor:"Carlos", date: "01/08/2023", description: "me gusto tu post",}]
+
+
+//let commentDescription = document.getElementById("commentTextarea").value
+const description = document.getElementById('textAreaComment');
+
+let postInfo = {
+  comments : [],
+}
+
+// const commentSave = async(postInfo) =>{
+//   const response = await fetch(URL_FIREBASE, {
+//       method: 'POST',
+//       // headers: { 'Content-type' : 'application/json;charset=UTF-8'},
+//       body: JSON.stringify(postInfo), 
+//   });
+//   let data = await response.json()
+//   console.log(response)
+//   return data
+// };
+
+let submitButton = document.getElementById("submitComment")
+
+submitButton.addEventListener("click", ()=>{
+  //alert("diste click a submit")
+  if (description.value === ""){
+    alert("No puede haber campos vacios")
+  }else{
+    const newDescription = description.value;
+    postInfo.comments = {newDescription, userNameComment, userImgComment, fechaActual}
+    console.log(postInfo)
+  }
+})
+
+
+// let {comments} = postInfo
+//   let comment = newComment.value
+//   comments.push({comment, userNameComment, userImgComment, fechaActual})
+
+
+//   buttonSave.addEventListener('click', () => {
+//   console.log("Guardando")
+//   patchPost()
+//   alert("The post was saved correctly")
+//   window.open(`/view-post/post.html?postId=${postId}`, "_self");
+// });
 
 // const URL_FIREBASE= "https://javascript29js-default-rtdb.firebaseio.com/devto/.json"
 

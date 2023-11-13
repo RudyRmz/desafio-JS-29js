@@ -160,11 +160,13 @@
                                             width: 35px; height: 35px;" />
                                     <div class="comment-detail__container rounded p-3 ms-1 w-100">
                                         <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a comment here"
-                                                id="floatingTextarea2"
-                                                style="height: 100px; resize: none; width: auto;"></textarea>
-                                            <label for="floatingTextarea2">Add to the discussion</label>
-                                            <button type="button" class="btn btn-info mt-3">Submit</button>
+                                            <!-- <textarea class="form-control"style="height: 100px; resize: none; width: auto;" id="commentTextarea">aaaaaa</textarea>
+                                            <label for="floatingTextarea2">Add to the discussion</label> -->
+                                              <div class="input-group">
+                                                <!-- <span class="input-group-text">With textarea</span> -->
+                                                <textarea class="form-control" aria-label="With textarea" id="textAreaComment"></textarea>
+                                              </div>
+                                            <button type="button" class="btn btn-info mt-3" id="submitComment">Submit</button>
                                         </div>
                                     </div>
                                 </div>
