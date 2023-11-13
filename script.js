@@ -43,6 +43,7 @@ const validTokenUser = () =>{
 
 validTokenUser()
 
+
 document.getElementById("signOutButton").addEventListener("click", ()=>{
   const respuesta = confirm("Are you sure you want to sign out?")
   if (respuesta) {
@@ -135,21 +136,33 @@ const createPost = (postData)=>{
   ulTagsList.setAttribute("id", "tags_list")
   ulTagsList.classList.add("tags__container", "list-unstyled", "d-flex", "flex-wrap", "ms-md-5", "ms-lg-5")
 
+  let tagsFunction = (tags, index) =>{
+    let tagResult = ""
+  if(!tags || !tags[index]){
+    tagResult = " "
+    return tagResult
+  } else {
+    tagResult = `#${tags[index]}`
+    return tagResult
+  }
+  }
+
   let liTag1 = document.createElement("li")
   liTag1.classList.add("p-1")
-  liTag1.innerText = `#${tags}`
-  
+  // liTag1.innerText = `#${tags[0]}`
+  liTag1.innerText = `${tagsFunction(tags, 0)}`
+
   let liTag2 = document.createElement("li")
   liTag2.classList.add("ms-3")
-  liTag2.innerText = `#${tags}`
+  liTag2.innerText = `${tagsFunction(tags, 1)}`
 
   let liTag3 = document.createElement("li")
   liTag3.classList.add("ms-3")
-  liTag3.innerText = `#${tags}`
+  liTag3.innerText = `${tagsFunction(tags, 2)}`
   
   let liTag4 = document.createElement("li")
   liTag4.classList.add("ms-3")
-  liTag4.innerText = `#${tags}`
+  liTag4.innerText = `${tagsFunction(tags, 3)}`
 
   let divInfoContainer = document.createElement("div")
   divInfoContainer.classList.add("info__container", "d-flex", "justify-content-between", "align-items-center", "ms-md-5", "ms-lg-5")
