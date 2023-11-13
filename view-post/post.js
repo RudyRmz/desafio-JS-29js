@@ -10,10 +10,13 @@ console.log(params)
 let postId = params.get("postId")
 console.log(postId)
 
+let postData 
+
 
 const getPostById = async (idPost) =>{
     let reponse = await fetch(`${URL_FIREBASE}/${idPost}/.json`)
     let data = await reponse.json();
+    postData = data
     console.log(data)
     // let {date, description, tags, title, url, reactions, key} = data;
 
@@ -172,16 +175,21 @@ let postInfo = {
   comments : [],
 }
 
-// const commentSave = async(postInfo) =>{
-//   const response = await fetch(URL_FIREBASE, {
-//       method: 'POST',
-//       // headers: { 'Content-type' : 'application/json;charset=UTF-8'},
-//       body: JSON.stringify(postInfo), 
-//   });
-//   let data = await response.json()
-//   console.log(response)
-//   return data
-// };
+
+const commentSave = async(postInfo) =>{
+  // let infoPost = {
+  //   comments : postInfo,
+  // }
+  
+  let response = await fetch(`${URL_FIREBASE}/${postId}/.json`, {
+      method: 'PUT',
+      // headers: { 'Content-type' : 'application/json;charset=UTF-8'},
+      body: JSON.stringify(postInfo), 
+  });
+  let data = await response.json()
+  console.log(response)
+  return data
+};
 
 let submitButton = document.getElementById("submitComment")
 
@@ -190,8 +198,12 @@ submitButton.addEventListener("click", ()=>{
   if (description.value === ""){
     alert("No puede haber campos vacios")
   }else{
+    //let {comments} = postData
     const newDescription = description.value;
-    postInfo.comments = {newDescription, userNameComment, userImgComment, fechaActual}
+    // postInfo.comments.push({newDescription, userNameComment, userImgComment, fechaActual})
+    postInfo.comments = newDescription
+    //commentSave(postInfo)
+    commentSave(postInfo)
     console.log(postInfo)
   }
 })
