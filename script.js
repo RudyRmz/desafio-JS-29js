@@ -282,6 +282,34 @@ filterDataSearch.addEventListener("keyup", (event) => {
   printPosts(filterResult);
 });
 
+let latestButton = document.getElementById("latestButton")
+let relevantButton = document.getElementById("relevantButton")
+let topButton = document.getElementById("topButton")
+
+latestButton.addEventListener("click", ()=>{
+  //alert("diste click a latest")
+  let postToLatest = [...postsEntries.sort(function(a,b){
+    return b.dateMiliseconds - a.dateMiliseconds
+  })]
+  latestButton.style.fontWeight = 'bolder';
+  relevantButton.style.fontWeight = '400';
+  topButton.style.fontWeight = '400';
+  console.log(postToLatest)
+  printPosts(postToLatest);
+})
+
+topButton.addEventListener("click", ()=>{
+  //alert("diste click a top")
+  let postTop = [...postsEntries.sort(function(a,b){
+    return b.reactions - a.reactions
+  })]
+  latestButton.style.fontWeight = '400';
+  relevantButton.style.fontWeight = '400';
+  topButton.style.fontWeight = 'bolder';
+  console.log(postTop)
+  printPosts(postTop);
+})
+
 // const URL_FIREBASE =
 //   "https://devs-imparables-default-rtdb.firebaseio.com/.json";
 
